@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinsry-Customer Help Center</title>
+    <meta name="description" content="Get instant help with Pinsry's AI-powered support assistant. Professional customer service for your story-sharing needs.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.png" alt="Pinsry Logo" class="logo-img">
+                    <div class="logo-text">
+                        <span class="brand-name">Pinsry</span>
+                        <span class="brand-tagline">Support Center</span>
+                    </div>
+                </div>
+                
+                <nav class="nav" id="nav">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#help" class="nav-link">Quick Help</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                
+                <button class="chat-trigger" id="chatTrigger">
+                    <svg class="chat-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3.01 1 4.31L2 22l5.69-1c1.3.64 2.77 1 4.31 1 5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="chat-text">Chat Support</span>
+                </button>
+                
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-links">
+                <a href="#home" class="mobile-menu-link active" data-section="home">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Home
+                </a>
+                <a href="#help" class="mobile-menu-link" data-section="help">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Quick Help
+                </a>
+                <a href="#faq" class="mobile-menu-link" data-section="faq">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    FAQ
+                </a>
+                <a href="#guides" class="mobile-menu-link" data-section="guides">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Guides
+                </a>
+                <a href="#contact" class="mobile-menu-link" data-section="contact">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Contact
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Chat Trigger (Floating Button) -->
+    <button class="mobile-chat-trigger" id="mobileChatTrigger">
+        <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3.01 1 4.31L2 22l5.69-1c1.3.64 2.77 1 4.31 1 5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">How can we help you today?</h1>
+                    <p class="hero-subtitle">Get instant support with our AI assistant or explore our comprehensive help resources. We're here to make your Pinsry experience amazing.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" id="openChatBtn">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Chat with AI Assistant
+                        </button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('help')">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Browse Help Topics
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="support-illustration">
+                        <div class="floating-elements">
+                            <div class="float-element float-1">💬</div>
+                            <div class="float-element float-2">📚</div>
+                            <div class="float-element float-3">✨</div>
+                            <div class="float-element float-4">🚀</div>
+                        </div>
+                        <div class="central-circle">
+                            <img src="logo.png" alt="Pinsry" class="hero-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Help Section -->
+    <section id="help" class="quick-help">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quick Help Topics</h2>
+                <p class="section-subtitle">Click any topic below to get instant help from our AI assistant</p>
+            </div>
+            <div class="help-grid">
+                <div class="help-card" data-topic="How do I create a story?">
+                    <div class="help-icon">✍️</div>
+                    <h3 class="help-title">Create Stories</h3>
+                    <p class="help-description">Learn how to write and publish engaging stories</p>
+                    <div class="help-arrow">→</div>
+                </div>
+                
+                <div class="help-card" data-topic="How do I bookmark stories?">
+                    <div class="help-icon">🔖</div>
+                    <h3 class="help-title">Bookmarks</h3>
+                    <p class="help-description">Save your favorite stories for later reading</p>
+                    <div class="help-arrow">→</div>
+                </div>
+                
+                <div class="help-card" data-topic="How do I follow other users?">
+                    <div class="help-icon">👥</div>
+                    <h3 class="help-title">Follow Authors</h3>
+                    <p class="help-description">Connect with writers you love</p>
+                    <div class="help-arrow">→</div>
+                </div>
+                
+                <div class="help-card" data-topic="How do notifications work?">
+                    <div class="help-icon">🔔</div>
+                    <h3 class="help-title">Notifications</h3>
+                    <p class="help-description">Stay updated with the latest content</p>
+                    <div class="help-arrow">→</div>
+                </div>
+                
+                <div class="help-card" data-topic="How do I read stories offline?">
+                    <div class="help-icon">📱</div>
+                    <h3 class="help-title">Offline Reading</h3>
+                    <p class="help-description">Enjoy stories anywhere, anytime</p>
+                    <div class="help-arrow">→</div>
+                </div>
+                
+                <div class="help-card" data-topic="How do I manage my account?">
+                    <div class="help-icon">⚙️</div>
+                    <h3 class="help-title">Account Settings</h3>
+                    <p class="help-description">Customize your profile and preferences</p>
+                    <div class="help-arrow">→</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Find quick answers to common questions</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I create my first story?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Creating your first story is easy! Tap the "+" button, select "Create Story", add your title and content, then publish to share with the Pinsry community.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I read stories offline?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Stories are automatically cached for offline reading. You can also manually download specific stories by tapping the download icon.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I follow my favorite authors?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Visit any author's profile and tap the "Follow" button. You'll see their new stories in your personalized feed and receive notifications about their latest content.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Who created Pinsry?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pinsry was created by Luohino, a visionary developer who designed this platform to connect writers and readers through beautiful storytelling experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guides Section -->
+    <section id="guides" class="guides-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Comprehensive Guides</h2>
+                <p class="section-subtitle">Step-by-step guides to help you master Pinsry</p>
+            </div>
+            <div class="guides-grid">
+                <div class="guide-category">
+                    <h3 class="guide-category-title">📝 Getting Started</h3>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <h4>Creating Your First Story</h4>
+                            <p>Learn how to write and publish your first story on Pinsry</p>
+                            <span class="guide-duration">5 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Setting Up Your Profile</h4>
+                            <p>Complete guide to customizing your author profile</p>
+                            <span class="guide-duration">3 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Understanding the Interface</h4>
+                            <p>Navigate Pinsry like a pro with our interface guide</p>
+                            <span class="guide-duration">4 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-category">
+                    <h3 class="guide-category-title">📖 Reading & Discovery</h3>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <h4>Finding Great Stories</h4>
+                            <p>Discover amazing content using search and recommendations</p>
+                            <span class="guide-duration">3 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Bookmarking Stories</h4>
+                            <p>Save your favorite stories for later reading</p>
+                            <span class="guide-duration">2 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Following Authors</h4>
+                            <p>Connect with writers you love and build your reading network</p>
+                            <span class="guide-duration">3 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-category">
+                    <h3 class="guide-category-title">✍️ Writing & Publishing</h3>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <h4>Writing Tips & Best Practices</h4>
+                            <p>Improve your writing with our expert tips</p>
+                            <span class="guide-duration">7 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Formatting Your Stories</h4>
+                            <p>Make your stories visually appealing with proper formatting</p>
+                            <span class="guide-duration">4 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Managing Your Stories</h4>
+                            <p>Edit, update, and organize your published content</p>
+                            <span class="guide-duration">5 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-category">
+                    <h3 class="guide-category-title">⚙️ Settings & Preferences</h3>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <h4>Account Settings</h4>
+                            <p>Customize your account and privacy preferences</p>
+                            <span class="guide-duration">4 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Notification Settings</h4>
+                            <p>Control what notifications you receive</p>
+                            <span class="guide-duration">3 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Reading Preferences</h4>
+                            <p>Customize your reading experience</p>
+                            <span class="guide-duration">3 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-category">
+                    <h3 class="guide-category-title">📱 Mobile & Offline</h3>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <h4>Mobile App Features</h4>
+                            <p>Make the most of Pinsry on your mobile device</p>
+                            <span class="guide-duration">5 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Offline Reading</h4>
+                            <p>Download stories and read without internet</p>
+                            <span class="guide-duration">4 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Syncing Across Devices</h4>
+                            <p>Keep your reading progress synchronized</p>
+                            <span class="guide-duration">3 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-category">
+                    <h3 class="guide-category-title">🤝 Community & Social</h3>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <h4>Engaging with Authors</h4>
+                            <p>Like, comment, and share to support writers</p>
+                            <span class="guide-duration">4 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Building Your Network</h4>
+                            <p>Connect with readers and writers in the community</p>
+                            <span class="guide-duration">5 min read</span>
+                        </div>
+                        <div class="guide-item">
+                            <h4>Sharing Stories</h4>
+                            <p>Share great content with friends and social media</p>
+                            <span class="guide-duration">3 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Still Need Help?</h2>
+                <p class="section-subtitle">We're here to support you every step of the way</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email Support</h3>
+                    <p>Get detailed help via email</p>
+                    <a href="mailto:luohino.pinsry@gmail.com" class="contact-link">luohino.pinsry@gmail.com</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our AI assistant instantly</p>
+                    <button class="contact-link" id="openChatBtn2">Start Chat</button>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📚</div>
+                    <h3>Help Center</h3>
+                    <p>Browse our comprehensive guides</p>
+                    <button class="contact-link" id="viewGuidesBtn">View Guides</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <div class="chat-avatar">
+                <img src="logo.png" alt="Pinsry Assistant" class="avatar-img">
+            </div>
+            <div class="chat-info">
+                <h4 class="chat-title">Pinsry Assistant</h4>
+                <span class="chat-status online">Online</span>
+            </div>
+            <button class="chat-close" id="chatClose">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages will be inserted here -->
+        </div>
+        
+        <div class="chat-input-container">
+            <div class="chat-input-wrapper">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about Pinsry..." autocomplete="off">
+                <button class="chat-send" id="chatSend">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Overlay -->
+    <div class="chat-overlay" id="chatOverlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
