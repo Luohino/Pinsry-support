@@ -333,7 +333,7 @@ class PinsrySupport {
         
         if (message.type === 'bot') {
             const avatarImg = document.createElement('img');
-            avatarImg.src = 'logo.png';
+            avatarImg.src = 'https://i.postimg.cc/fWCLqsL7/9920.png';
             avatarImg.alt = 'Pinsry Assistant';
             avatarImg.style.width = '100%';
             avatarImg.style.height = '100%';
@@ -372,7 +372,7 @@ class PinsrySupport {
         const avatarEl = document.createElement('div');
         avatarEl.className = 'message-avatar';
         const avatarImg = document.createElement('img');
-        avatarImg.src = 'logo.png';
+        avatarImg.src = 'https://i.postimg.cc/fWCLqsL7/9920.png';
         avatarImg.alt = 'Pinsry Assistant';
         avatarImg.style.width = '100%';
         avatarImg.style.height = '100%';
