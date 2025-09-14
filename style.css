@@ -809,16 +809,6 @@ button.contact-link {
     visibility: visible;
 }
 
-@media (max-width: 640px) {
-    .chat-widget {
-        bottom: 0;
-        right: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        border-radius: 0;
-    }
-}
 
 .chat-header {
     display: flex;
@@ -896,6 +886,7 @@ button.contact-link {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
+    min-height: 0;
 }
 
 .message {
@@ -933,6 +924,8 @@ button.contact-link {
     color: var(--gray-800);
     word-wrap: break-word;
     line-height: 1.5;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .message.user .message-bubble {
@@ -980,6 +973,8 @@ button.contact-link {
 .chat-input-container {
     padding: var(--space-4);
     border-top: 1px solid var(--gray-200);
+    background: var(--white);
+    flex-shrink: 0;
 }
 
 .chat-input-wrapper {
@@ -998,6 +993,8 @@ button.contact-link {
     outline: none;
     transition: all var(--transition-fast);
     background: var(--white);
+    min-height: 2.5rem;
+    max-height: 6rem;
 }
 
 .chat-input:focus {
@@ -1052,6 +1049,25 @@ button.contact-link {
 @media (min-width: 641px) {
     .chat-overlay {
         display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .chat-widget {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        transform: translateY(100%);
+        transition: transform var(--transition-smooth);
+    }
+    
+    .chat-widget.active {
+        transform: translateY(0);
     }
 }
 
