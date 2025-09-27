@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://i.postimg.cc/fWCLqsL7/9920.png" type="image/png">
+    
+    <!-- Preload critical images for faster loading -->
+    <link rel="preload" as="image" href="https://i.postimg.cc/fWCLqsL7/9920.png" type="image/png">
 </head>
 <body>
     <!-- Header -->
@@ -15,7 +18,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="https://i.postimg.cc/fWCLqsL7/9920.png" alt="Pinsry Logo" class="logo-img">
+                    <img src="https://i.postimg.cc/fWCLqsL7/9920.png" alt="Pinsry Logo" class="logo-img" loading="eager" decoding="async" width="40" height="40">
                     <div class="logo-text">
                         <span class="brand-name">Pinsry</span>
                         <span class="brand-tagline">Support Center</span>
@@ -133,7 +136,7 @@
                             <div class="float-element float-4">🚀</div>
                         </div>
                         <div class="central-circle">
-                            <img src="https://i.postimg.cc/fWCLqsL7/9920.png" alt="Pinsry" class="hero-logo">
+                            <img src="https://i.postimg.cc/fWCLqsL7/9920.png" alt="Pinsry" class="hero-logo" loading="eager" decoding="async" width="80" height="80">
                         </div>
                     </div>
                 </div>
@@ -426,7 +429,7 @@
     <div class="chat-widget" id="chatWidget">
         <div class="chat-header">
             <div class="chat-avatar">
-                <img src="https://i.postimg.cc/fWCLqsL7/9920.png" alt="Pinsry Assistant" class="avatar-img">
+                <img src="https://i.postimg.cc/fWCLqsL7/9920.png" alt="Pinsry Assistant" class="avatar-img" loading="lazy" decoding="async" width="40" height="40">
             </div>
             <div class="chat-info">
                 <h4 class="chat-title">Pinsry Assistant</h4>
