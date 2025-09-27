@@ -83,6 +83,26 @@
     box-sizing: border-box;
 }
 
+/* Image optimization */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* Smooth loading transition */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+img[src] {
+    opacity: 1;
+}
+
+/* Loading state for images */
+img:not([src]) {
+    background: var(--gray-200);
+    border-radius: var(--radius-md);
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -140,6 +160,9 @@ body {
     height: 2.5rem;
     border-radius: var(--radius-md);
     object-fit: cover;
+    /* Performance optimizations */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .logo-text {
@@ -449,6 +472,9 @@ body {
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
+    /* Performance optimizations */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 @keyframes float {
@@ -853,6 +879,9 @@ button.contact-link {
     height: 2.5rem;
     border-radius: 50%;
     border: 2px solid var(--white);
+    /* Performance optimizations */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .chat-info {
@@ -1103,9 +1132,10 @@ button.contact-link {
     .chat-input-wrapper {
         display: flex;
         gap: var(--space-3);
-        align-items: flex-end;
+        align-items: center;
         /* Add more spacing for better touch targets */
         padding: var(--space-2) 0;
+        width: 100%;
     }
     
     /* Mobile chat input field */
@@ -1123,6 +1153,9 @@ button.contact-link {
         max-height: 8rem;
         /* Better touch target size */
         line-height: 1.5;
+        /* Ensure proper flex behavior */
+        flex-shrink: 1;
+        width: auto;
     }
     
     /* Mobile chat send button */
@@ -1140,6 +1173,10 @@ button.contact-link {
         /* Better touch target */
         min-width: 3rem;
         min-height: 3rem;
+        /* Ensure button doesn't shrink */
+        flex-shrink: 0;
+        width: 3rem;
+        height: 3rem;
     }
     
     /* Mobile chat messages area */
@@ -1237,6 +1274,26 @@ button.contact-link {
     .message:last-child {
         margin-bottom: 0;
     }
+    
+    /* Ensure input container doesn't overlap with content */
+    .chat-input-container {
+        position: relative;
+        z-index: 10;
+        /* Add subtle shadow to separate from messages */
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Prevent input wrapper from overflowing */
+    .chat-input-wrapper {
+        max-width: 100%;
+        overflow: hidden;
+    }
+    
+    /* Ensure proper button positioning */
+    .chat-send {
+        position: relative;
+        z-index: 5;
+    }
 }
 
 /* Utility Functions - Moved to JavaScript file */
@@ -1259,6 +1316,9 @@ button.contact-link {
     z-index: 1000;
     align-items: center;
     justify-content: center;
+    /* Ensure proper positioning */
+    margin: 0;
+    padding: 0;
 }
 
 .mobile-chat-trigger:hover {
@@ -1499,16 +1559,25 @@ button.contact-link {
         padding: var(--space-3) var(--space-3) calc(var(--space-3) + env(safe-area-inset-bottom));
     }
     
+    .chat-input-wrapper {
+        gap: var(--space-2);
+        padding: var(--space-1) 0;
+    }
+    
     .chat-input {
         padding: var(--space-3) var(--space-3);
         font-size: 0.95rem;
         min-height: 2.75rem;
+        flex-shrink: 1;
     }
     
     .chat-send {
         padding: var(--space-3);
         min-width: 2.75rem;
         min-height: 2.75rem;
+        width: 2.75rem;
+        height: 2.75rem;
+        flex-shrink: 0;
     }
     
     .chat-messages {
