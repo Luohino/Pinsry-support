@@ -824,6 +824,23 @@ button.contact-link {
 @media (max-width: 640px) {
     .chat-header {
         border-radius: 0;
+        padding: var(--space-4) var(--space-4);
+        /* Add safe area support for mobile devices with notches */
+        padding-top: calc(var(--space-4) + env(safe-area-inset-top));
+    }
+    
+    .chat-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+    
+    .chat-status {
+        font-size: 0.8rem;
+    }
+    
+    .avatar-img {
+        width: 2.75rem;
+        height: 2.75rem;
     }
 }
 
@@ -1064,10 +1081,161 @@ button.contact-link {
         border-radius: 0;
         transform: translateY(100%);
         transition: transform var(--transition-smooth);
+        /* Add safe area support for mobile devices */
+        padding-bottom: env(safe-area-inset-bottom);
     }
     
     .chat-widget.active {
         transform: translateY(0);
+    }
+    
+    /* Mobile chat input container improvements */
+    .chat-input-container {
+        padding: var(--space-4) var(--space-4) calc(var(--space-4) + env(safe-area-inset-bottom));
+        border-top: 1px solid var(--gray-200);
+        background: var(--white);
+        flex-shrink: 0;
+        /* Add extra bottom spacing for mobile */
+        margin-bottom: var(--space-2);
+    }
+    
+    /* Mobile chat input wrapper */
+    .chat-input-wrapper {
+        display: flex;
+        gap: var(--space-3);
+        align-items: flex-end;
+        /* Add more spacing for better touch targets */
+        padding: var(--space-2) 0;
+    }
+    
+    /* Mobile chat input field */
+    .chat-input {
+        flex: 1;
+        padding: var(--space-4) var(--space-4);
+        border: 1px solid var(--gray-300);
+        border-radius: var(--radius-xl);
+        font-size: 1rem;
+        resize: none;
+        outline: none;
+        transition: all var(--transition-fast);
+        background: var(--white);
+        min-height: 3rem;
+        max-height: 8rem;
+        /* Better touch target size */
+        line-height: 1.5;
+    }
+    
+    /* Mobile chat send button */
+    .chat-send {
+        background: var(--gradient-primary);
+        color: var(--white);
+        border: none;
+        border-radius: var(--radius-xl);
+        padding: var(--space-4);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Better touch target */
+        min-width: 3rem;
+        min-height: 3rem;
+    }
+    
+    /* Mobile chat messages area */
+    .chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: var(--space-4) var(--space-4) var(--space-2);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        min-height: 0;
+        /* Add bottom padding to prevent overlap with input */
+        padding-bottom: var(--space-6);
+    }
+    
+    /* Mobile message bubbles */
+    .message-bubble {
+        max-width: 85%;
+        padding: var(--space-4) var(--space-4);
+        border-radius: var(--radius-xl);
+        background: var(--gray-100);
+        color: var(--gray-800);
+        word-wrap: break-word;
+        line-height: 1.6;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        font-size: 1rem;
+    }
+    
+    .message.user .message-bubble {
+        background: var(--gradient-primary);
+        color: var(--white);
+    }
+    
+    /* Mobile message avatars */
+    .message-avatar {
+        flex-shrink: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+    
+    .message.user .message-avatar {
+        background: var(--gray-500);
+    }
+    
+    /* Mobile scroll improvements */
+    .chat-messages {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    /* Mobile typing indicator improvements */
+    .typing-indicator {
+        padding: var(--space-4) var(--space-4);
+        border-radius: var(--radius-xl);
+        background: var(--gray-100);
+        align-items: center;
+        max-width: fit-content;
+    }
+    
+    .typing-dot {
+        width: 0.6rem;
+        height: 0.6rem;
+        background: var(--gray-400);
+        border-radius: 50%;
+        animation: typing 1.4s ease-in-out infinite;
+    }
+    
+    /* Mobile focus improvements */
+    .chat-input:focus {
+        border-color: var(--primary-500);
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        transform: none;
+    }
+    
+    /* Mobile button hover states */
+    .chat-send:active {
+        transform: scale(0.95);
+        background: var(--primary-700);
+    }
+    
+    /* Mobile message spacing */
+    .message {
+        margin-bottom: var(--space-2);
+    }
+    
+    .message:last-child {
+        margin-bottom: 0;
     }
 }
 
@@ -1324,6 +1492,39 @@ button.contact-link {
     .mobile-chat-trigger svg {
         width: 1.25rem;
         height: 1.25rem;
+    }
+    
+    /* Extra small mobile chat improvements */
+    .chat-input-container {
+        padding: var(--space-3) var(--space-3) calc(var(--space-3) + env(safe-area-inset-bottom));
+    }
+    
+    .chat-input {
+        padding: var(--space-3) var(--space-3);
+        font-size: 0.95rem;
+        min-height: 2.75rem;
+    }
+    
+    .chat-send {
+        padding: var(--space-3);
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+    }
+    
+    .chat-messages {
+        padding: var(--space-3) var(--space-3) var(--space-2);
+        padding-bottom: var(--space-4);
+    }
+    
+    .message-bubble {
+        padding: var(--space-3) var(--space-3);
+        font-size: 0.95rem;
+    }
+    
+    .message-avatar {
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 0.8rem;
     }
 }
 
